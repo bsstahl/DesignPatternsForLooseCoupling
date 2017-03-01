@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D027092-D2A6-4A61-B64B-501A3A95577E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{7C948038-7A5A-4874-B639-A0C51773F0D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CreateCateringData</RootNamespace>
-    <AssemblyName>CreateCateringData</AssemblyName>
+    <RootNamespace>Catering.Business</RootNamespace>
+    <AssemblyName>Catering.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,20 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Catering.Business\Catering.Business.csproj">
-      <Project>{7c948038-7a5a-4874-b639-a0c51773f0d5}</Project>
-      <Name>Catering.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Catering.Common\Catering.Common.csproj">
       <Project>{3d10f63f-3aa0-4296-ba09-aab1625c8258}</Project>
       <Name>Catering.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj">
+      <Project>{1a6d4bec-4c8d-48c5-8afc-7c2270eb2bd8}</Project>
+      <Name>Catering.Data.MeetingServiceClient</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

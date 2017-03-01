@@ -11,17 +11,8 @@ namespace CreateCateringData
     {
         static void Main(string[] args)
         {
-            // Step 1 -- Get Data
-
-            // Calculate start and end dates of next month
-            var dataDate = DateTime.Now.AddMonths(1);
-            var start = new DateTime(dataDate.Year, dataDate.Month, 1);
-            var end = start.AddMonths(1).AddDays(-1);
-
-            // retrieve the data from the repository
-            IMeetingRepository repo = new Catering.Data.MeetingServiceClient.Repository();
-            var meetings = repo.GetMeetings(start, end);
-
+            var engine = new Catering.Business.Engine();
+            engine.CreateData();
         }
     }
 }

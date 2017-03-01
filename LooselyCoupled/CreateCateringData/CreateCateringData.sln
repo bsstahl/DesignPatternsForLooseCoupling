@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingService", "..\..\Mee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Data.MeetingServiceClient", "Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj", "{1A6D4BEC-4C8D-48C5-8AFC-7C2270EB2BD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Business", "Catering.Business\Catering.Business.csproj", "{7C948038-7A5A-4874-B639-A0C51773F0D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{1A6D4BEC-4C8D-48C5-8AFC-7C2270EB2BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A6D4BEC-4C8D-48C5-8AFC-7C2270EB2BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A6D4BEC-4C8D-48C5-8AFC-7C2270EB2BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C948038-7A5A-4874-B639-A0C51773F0D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C948038-7A5A-4874-B639-A0C51773F0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C948038-7A5A-4874-B639-A0C51773F0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C948038-7A5A-4874-B639-A0C51773F0D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
