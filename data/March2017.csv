@@ -1,0 +1,73 @@
+1,1,12,2,Miami FL
+1,2,12,2,New Orleans LA
+2,1,13,2,New York, NY
+2,2,14,1,New Orleans LA
+3,1,9,1,Tucson AZ
+3,2,9,4,Tucson AZ
+4,1,10,1,Albany NY
+4,1,14,2,Phoenix AZ
+5,2,9,4,New York, NY
+5,1,12,2,Dallas TX
+5,2,11,2,Albany NY
+6,1,13,1,Miami FL
+6,1,14,1,Phoenix AZ
+7,3,11,2,Dallas TX
+7,2,9,1,Houston TX
+8,2,10,2,Miami FL
+8,2,12,2,Phoenix AZ
+9,3,10,3,Houston TX
+9,3,9,4,Albany NY
+9,2,14,3,Albany NY
+10,3,11,1,Tucson AZ
+10,2,11,3,Dallas TX
+11,1,14,4,New York, NY
+11,3,13,3,Dallas TX
+12,1,14,2,Dallas TX
+12,3,13,2,New Orleans LA
+13,2,11,4,Tucson AZ
+13,3,12,1,Dallas TX
+14,2,11,1,Phoenix AZ
+14,2,10,2,Phoenix AZ
+14,2,12,1,Houston TX
+15,2,9,3,Tucson AZ
+15,3,14,3,Miami FL
+16,3,14,4,Houston TX
+16,3,12,4,Phoenix AZ
+17,3,11,4,Albany NY
+17,3,10,2,New Orleans LA
+18,3,13,1,New York, NY
+18,2,9,1,Albany NY
+19,3,13,3,Phoenix AZ
+19,3,10,1,Miami FL
+19,1,9,1,Houston TX
+20,1,12,2,Dallas TX
+20,1,11,2,Tucson AZ
+20,1,14,2,Albany NY
+21,1,10,4,Houston TX
+21,3,10,4,New York, NY
+21,1,10,3,Miami FL
+22,2,14,2,Phoenix AZ
+22,1,12,3,Albany NY
+22,2,12,3,Tucson AZ
+23,2,11,3,New Orleans LA
+23,3,9,1,Albany NY
+24,3,13,4,Phoenix AZ
+24,3,11,1,Phoenix AZ
+25,2,12,2,New York, NY
+25,2,14,1,Miami FL
+26,2,13,3,Miami FL
+26,2,10,4,Miami FL
+26,2,10,3,New Orleans LA
+27,2,13,2,Albany NY
+27,2,11,1,New York, NY
+27,1,14,2,Dallas TX
+28,2,13,4,New York, NY
+28,3,11,1,Tucson AZ
+28,3,10,3,Tucson AZ
+29,2,9,1,Albany NY
+29,3,11,4,Phoenix AZ
+30,2,11,3,Dallas TX
+30,3,12,1,Tucson AZ
+31,1,11,3,Miami FL
+31,1,14,3,Houston TX
+31,1,11,2,Miami FL
