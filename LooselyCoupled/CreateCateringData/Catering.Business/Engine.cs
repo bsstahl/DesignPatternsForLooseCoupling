@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Framework.DependencyInjection;
 
 namespace Catering.Business
 {
     public class Engine
     {
+        IServiceProvider _serviceProvider;
+        public Engine(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         public void CreateData()
         {
             // Step 1 -- Get Data
@@ -19,7 +26,7 @@ namespace Catering.Business
             var end = start.AddMonths(1).AddDays(-1);
 
             // retrieve the data from the repository
-            IMeetingRepository repo = new Catering.Data.MeetingServiceClient.Repository();
+            IMeetingRepository repo = _serviceProvider.GetService<IMeetingRepository>();
             var meetings = repo.GetMeetings(start, end);
 
         }
