@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Catering.Business.Test
+namespace Catering.Common.Extensions
 {
-    public static class Extensions
+    public static class DateExtensions
     {
         public static DateTime FirstDayOfNextMonth(this DateTime value)
         {

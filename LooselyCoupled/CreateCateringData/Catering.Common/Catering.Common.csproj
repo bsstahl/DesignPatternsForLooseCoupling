@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entities\CateringEvent.cs" />
     <Compile Include="Entities\Meeting.cs" />
+    <Compile Include="Extensions\DateExtensions.cs" />
     <Compile Include="Interfaces\ICateringStrategy.cs" />
     <Compile Include="Interfaces\IMeetingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

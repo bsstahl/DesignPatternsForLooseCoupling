@@ -49,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj">
+      <Project>{5e00b01d-f7cd-4a61-86db-5625daee53b8}</Project>
+      <Name>Catering.Business.Strategy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Catering.Common\Catering.Common.csproj">
       <Project>{3d10f63f-3aa0-4296-ba09-aab1625c8258}</Project>
       <Name>Catering.Common</Name>

@@ -1,54 +1,34 @@
-﻿using Catering.Common.Interfaces;
-using Catering.Common.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Framework.DependencyInjection;
+﻿using System;
+using Catering.Common.Extensions;
+using Catering.Common.Interfaces;
 
 namespace Catering.Business
 {
     public class Engine
     {
-        IServiceProvider _serviceProvider;
-        public Engine(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
-
         public void CreateData()
         {
             // Calculate start and end dates of next month
-            var dataDate = DateTime.Now.AddMonths(1);
-            var start = new DateTime(dataDate.Year, dataDate.Month, 1);
-            var end = start.AddMonths(1).AddDays(-1);
+            var start = DateTime.Now.FirstDayOfNextMonth();
+            var end = DateTime.Now.LastDayOfNextMonth();
 
             // Retrieve the data from the repository
-            IMeetingRepository repo = _serviceProvider.GetService<IMeetingRepository>();
+            IMeetingRepository repo = new Catering.Data.MeetingServiceClient.Repository();
             var meetings = repo.GetMeetings(start, end);
 
             // Determine if catering is required for any day in any meeting
-            var strategy = _serviceProvider.GetService<ICateringStrategy>();
-            var results = new List<CateringEvent>();
-            foreach (var meeting in meetings)
-            {
-                for (int i = 0; i < meeting.NumberOfDays; i++)
-                {
-                    var startDateTime = new DateTime(start.Year, start.Month, meeting.StartDay).AddDays(i).AddHours(meeting.StartHour);
-                    if (strategy.ShouldMeetingBeCatered(startDateTime, meeting.LengthHours))
-                        results.Add(meeting.AsCateringEvent(start.Year, start.Month));
-                }
-            }
+            ICateringStrategy strategy = new Catering.Business.Strategy.Engine();
+            var cateringEvents = meetings.SelectCateringEvents(strategy, start);
 
-            // TODO: Output results to Catering Repository
-
+            // Output results to Catering Repository
+            #region Mission
             // Your mission, should you choose to accept it, is to continue the process
             // of refactoring this application by implementing an output repository.
             // I recommend starting by simply using the file system and creating a file output
             // that matches the output of the original tightly-coupled application.  If you are
             // then feeling ambitious, you could create additional repositories that output the
             // data to a database, an XML or JSON file, or even to Twitter if you feel the need.
+            #endregion
         }
     }
 }
