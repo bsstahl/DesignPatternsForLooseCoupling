@@ -42,6 +42,13 @@ namespace Catering.Business
             }
 
             // TODO: Output results to Catering Repository
+
+            // Your mission, should you choose to accept it, is to continue the process
+            // of refactoring this application by implementing an output repository.
+            // I recommend starting by simply using the file system and creating a file output
+            // that matches the output of the original tightly-coupled application.  If you are
+            // then feeling ambitious, you could create additional repositories that output the
+            // data to a database, an XML or JSON file, or even to Twitter if you feel the need.
         }
     }
 }
