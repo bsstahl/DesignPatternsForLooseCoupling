@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D10F63F-3AA0-4296-BA09-AAB1625C8258}</ProjectGuid>
+    <ProjectGuid>{5E00B01D-F7CD-4A61-86DB-5625DAEE53B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Catering.Common</RootNamespace>
-    <AssemblyName>Catering.Common</AssemblyName>
+    <RootNamespace>Catering.Business.Strategy</RootNamespace>
+    <AssemblyName>Catering.Business.Strategy</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CateringEvent.cs" />
-    <Compile Include="Entities\Meeting.cs" />
-    <Compile Include="Interfaces\ICateringStrategy.cs" />
-    <Compile Include="Interfaces\IMeetingRepository.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Catering.Common\Catering.Common.csproj">
+      <Project>{3d10f63f-3aa0-4296-ba09-aab1625c8258}</Project>
+      <Name>Catering.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

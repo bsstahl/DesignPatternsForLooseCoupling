@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj">
+      <Project>{5e00b01d-f7cd-4a61-86db-5625daee53b8}</Project>
+      <Name>Catering.Business.Strategy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Catering.Business\Catering.Business.csproj">
       <Project>{7c948038-7a5a-4874-b639-a0c51773f0d5}</Project>
       <Name>Catering.Business</Name>

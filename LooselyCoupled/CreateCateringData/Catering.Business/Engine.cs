@@ -1,4 +1,5 @@
 ﻿using Catering.Common.Interfaces;
+using Catering.Common.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,29 @@ namespace Catering.Business
 
         public void CreateData()
         {
-            // Step 1 -- Get Data
-
             // Calculate start and end dates of next month
             var dataDate = DateTime.Now.AddMonths(1);
             var start = new DateTime(dataDate.Year, dataDate.Month, 1);
             var end = start.AddMonths(1).AddDays(-1);
 
-            // retrieve the data from the repository
+            // Retrieve the data from the repository
             IMeetingRepository repo = _serviceProvider.GetService<IMeetingRepository>();
             var meetings = repo.GetMeetings(start, end);
 
+            // Determine if catering is required for any day in any meeting
+            var strategy = _serviceProvider.GetService<ICateringStrategy>();
+            var results = new List<CateringEvent>();
+            foreach (var meeting in meetings)
+            {
+                for (int i = 0; i < meeting.NumberOfDays; i++)
+                {
+                    var startDateTime = new DateTime(start.Year, start.Month, meeting.StartDay).AddDays(i).AddHours(meeting.StartHour);
+                    if (strategy.ShouldMeetingBeCatered(startDateTime, meeting.LengthHours))
+                        results.Add(meeting.AsCateringEvent(start.Year, start.Month));
+                }
+            }
+
+            // TODO: Output results to Catering Repository
         }
     }
 }
