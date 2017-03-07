@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateCateringData", "CreateCateringData\CreateCateringData.csproj", "{7D027092-D2A6-4A61-B64B-501A3A95577E}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Business", "Catering.Business\Catering.Business.csproj", "{7C948038-7A5A-4874-B639-A0C51773F0D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Business.Strategy", "Catering.Business.Strategy\Catering.Business.Strategy.csproj", "{5E00B01D-F7CD-4A61-86DB-5625DAEE53B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{046F821E-C74C-4E3F-9B45-206DB20AF691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,5 +55,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{15AFDFEC-2D63-4EC6-B498-61BE82B2F152} = {A27AF416-C036-44A9-AAD5-EA96554BC677}
+		{1A6D4BEC-4C8D-48C5-8AFC-7C2270EB2BD8} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
+		{7C948038-7A5A-4874-B639-A0C51773F0D5} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
+		{5E00B01D-F7CD-4A61-86DB-5625DAEE53B8} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
 	EndGlobalSection
 EndGlobal
