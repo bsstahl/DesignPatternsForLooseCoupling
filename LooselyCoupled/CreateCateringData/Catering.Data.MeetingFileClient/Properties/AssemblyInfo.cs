@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CreateCateringData")]
+[assembly: AssemblyTitle("Catering.Data.MeetingServiceClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("US Airways")]
-[assembly: AssemblyProduct("CreateCateringData")]
+[assembly: AssemblyProduct("Catering.Data.MeetingServiceClient")]
 [assembly: AssemblyCopyright("Copyright © US Airways 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7d027092-d2a6-4a61-b64b-501a3a95577e")]
+[assembly: Guid("1a6d4bec-4c8d-48c5-8afc-7c2270eb2bd8")]
 
 // Version information for an assembly consists of the following four values:
 //

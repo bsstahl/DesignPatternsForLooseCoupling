@@ -1,0 +1,23 @@
+
+In Main() of Program.cs of CreateCateringData
+
+            var engine = new Catering.Business.Engine();
+            engine.CreateData();
+
+
+In CreateData() of Catering.Business.Engine
+
+            // Calculate start and end dates of next month
+            var start = DateTime.Now.FirstDayOfNextMonth();
+            var end = DateTime.Now.LastDayOfNextMonth();
+
+
+            // Retrieve the data from the repository
+            var repo = new Catering.Data.MeetingServiceClient.Repository();
+            var meetings = repo.GetMeetings(start, end);
+
+
+            // Determine if catering is required for any day in any meeting
+            var strategy = new Catering.Business.Strategy.Engine();
+            var cateringEvents = meetings.SelectCateringEvents(strategy, start);
+

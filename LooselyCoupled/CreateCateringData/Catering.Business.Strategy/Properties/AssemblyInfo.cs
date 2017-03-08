@@ -8,9 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Catering.Business.Strategy")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("US Airways")]
 [assembly: AssemblyProduct("Catering.Business.Strategy")]
-[assembly: AssemblyCopyright("Copyright © US Airways 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
