@@ -57,6 +57,10 @@
       <Project>{3d10f63f-3aa0-4296-ba09-aab1625c8258}</Project>
       <Name>Catering.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Catering.Data.MeetingFile\Catering.Data.MeetingFile.csproj">
+      <Project>{bcc9c922-f0c4-423f-b659-4e499d13dff2}</Project>
+      <Name>Catering.Data.MeetingFile</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj">
       <Project>{1a6d4bec-4c8d-48c5-8afc-7c2270eb2bd8}</Project>
       <Name>Catering.Data.MeetingServiceClient</Name>
