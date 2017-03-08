@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Data.MeetingFile", "Catering.Data.MeetingFile\Catering.Data.MeetingFile.csproj", "{BCC9C922-F0C4-423F-B659-4E499D13DFF2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DF6F61CE-5221-4A13-8441-E18B61451DE6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6622F5AC-20A5-4760-904D-09A0D4E7D6FB}"
 	ProjectSection(SolutionItems) = preProject
 		Script.txt = Script.txt
