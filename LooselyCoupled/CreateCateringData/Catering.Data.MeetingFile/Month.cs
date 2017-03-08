@@ -15,6 +15,7 @@ namespace Catering.Data.MeetingFile
         {
             _inputFilePath = inputFilePath;
             _firstDayOfMonth = GetFirstDayOfTheMonth(inputFilePath);
+            this.Load();
         }
 
         internal void Load()

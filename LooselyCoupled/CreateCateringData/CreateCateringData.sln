@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Script.txt = Script.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateCateringData", "CreateCateringData\CreateCateringData.csproj", "{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,18 @@ Global
 		{BCC9C922-F0C4-423F-B659-4E499D13DFF2}.Release|x64.Build.0 = Release|Any CPU
 		{BCC9C922-F0C4-423F-B659-4E499D13DFF2}.Release|x86.ActiveCfg = Release|Any CPU
 		{BCC9C922-F0C4-423F-B659-4E499D13DFF2}.Release|x86.Build.0 = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Debug|x86.Build.0 = Debug|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|x64.Build.0 = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{973B2FB3-76F5-49AF-9B6C-7B90842BAC1B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
