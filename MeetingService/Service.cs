@@ -29,7 +29,7 @@ namespace MeetingService
                 {
                     result.Add(new Meeting()
                     {
-                        StartDay = i + 1,
+                        StartDate = start.AddDays(i + 1),
                         NumberOfDays = rnd.Next(1, 4),
                         StartHour = rnd.Next(9, 15),
                         LengthHours = rnd.Next(1, 5),

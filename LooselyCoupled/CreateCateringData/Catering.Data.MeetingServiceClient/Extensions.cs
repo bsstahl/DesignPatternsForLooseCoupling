@@ -9,7 +9,7 @@ namespace Catering.Data.MeetingServiceClient
         {
             return new Meeting()
             {
-                StartDay = meeting.StartDay,
+                StartDate = meeting.StartDate,
                 NumberOfDays = meeting.NumberOfDays,
                 StartHour = meeting.StartHour,
                 LengthHours = meeting.LengthHours,

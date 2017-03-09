@@ -8,7 +8,7 @@ namespace MeetingService
 {
     public class Meeting
     {
-        public int StartDay { get; set; }
+        public DateTime StartDate { get; set; }
         public int NumberOfDays { get; set; }
         public Single StartHour { get; set; }
         public Single LengthHours { get; set; }
@@ -16,7 +16,7 @@ namespace MeetingService
 
         public override string ToString()
         {
-            return $"{this.StartDay},{this.NumberOfDays},{this.StartHour},{this.LengthHours},{this.Location}";
+            return $"{this.StartDate.Day},{this.NumberOfDays},{this.StartHour},{this.LengthHours},{this.Location}";
         }
     }
 }

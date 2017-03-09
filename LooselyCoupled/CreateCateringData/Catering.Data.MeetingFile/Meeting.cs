@@ -16,17 +16,13 @@ namespace Catering.Data.MeetingFile
         private void Load(string dataRow, DateTime firstDayOfMonth)
         {
             var items = dataRow.Split(',');
-            this.StartDay = Int32.Parse(items[0]);
+            var startDay = Int32.Parse(items[0]);
+
+            this.StartDate = firstDayOfMonth.AddDays(startDay - 1).Date;
             this.NumberOfDays = Int32.Parse(items[1]);
             this.StartHour = Single.Parse(items[2]);
             this.LengthHours = Single.Parse(items[3]);
             this.Location = items[4];
-
-            for (int i = 0; i < this.NumberOfDays; i++)
-            {
-                var startDateTime = firstDayOfMonth.AddDays(i + this.StartDay - 1).Date.AddHours(this.StartHour);
-                var endDateTime = startDateTime.AddHours(this.LengthHours);
-            }
         }
     }
 }
