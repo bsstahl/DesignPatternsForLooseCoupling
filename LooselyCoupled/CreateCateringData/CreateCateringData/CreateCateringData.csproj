@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj">
+      <Project>{5e00b01d-f7cd-4a61-86db-5625daee53b8}</Project>
+      <Name>Catering.Business.Strategy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Catering.Business\Catering.Business.csproj">
       <Project>{7c948038-7a5a-4874-b639-a0c51773f0d5}</Project>
       <Name>Catering.Business</Name>
@@ -69,6 +73,14 @@
     <ProjectReference Include="..\Catering.Common\Catering.Common.csproj">
       <Project>{3D10F63F-3AA0-4296-BA09-AAB1625C8258}</Project>
       <Name>Catering.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catering.Data.MeetingFile\Catering.Data.MeetingFile.csproj">
+      <Project>{bcc9c922-f0c4-423f-b659-4e499d13dff2}</Project>
+      <Name>Catering.Data.MeetingFile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj">
+      <Project>{1a6d4bec-4c8d-48c5-8afc-7c2270eb2bd8}</Project>
+      <Name>Catering.Data.MeetingServiceClient</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
