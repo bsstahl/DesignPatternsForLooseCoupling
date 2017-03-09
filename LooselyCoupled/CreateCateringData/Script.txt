@@ -47,5 +47,5 @@ In CreateData() of Catering.Business.Engine, Add
 
             // Determine if catering is required for any day in any meeting
             var strategy = _serviceProvider.GetService<ICateringStrategy>();
-            var cateringEvents = meetings.SelectCateringEvents(strategy, start);
+            var cateringEvents = meetings.SelectCateringEvents(strategy, startDate);
 
