@@ -1,3 +1,4 @@
+Demo 1:
 
 In Main() of Program.cs of CreateCateringData
 
@@ -11,13 +12,40 @@ In CreateData() of Catering.Business.Engine
             var start = DateTime.Now.FirstDayOfNextMonth();
             var end = DateTime.Now.LastDayOfNextMonth();
 
-
             // Retrieve the data from the repository
-            var repo = new Catering.Data.MeetingServiceClient.Repository();
+            var repo = new Catering.Data.MeetingFile.Repository(@"C:\Users\Barry\Source\Repos\DesignPatternsForLooseCoupling\data\April2017.csv");
             var meetings = repo.GetMeetings(start, end);
 
 
+Demo 2:
+
+In Main() of Program.cs of CreateCateringData, Add
+
+            var container = new ServiceCollection();
+            container.AddTransient<IMeetingRepository>(s => new Catering.Data.MeetingFile.Repository(@"C:\Users\Barry\Source\Repos\DesignPatternsForLooseCoupling\data\April2017.csv"));
+            // container.AddTransient<IMeetingRepository>(s => new Catering.Data.MeetingServiceClient.Repository());
+
+
+In CreateData() of Catering.Business.Engine
+
+            // Retrieve the data from the repository
+            var startDate = DateTime.Now.FirstDayOfNextMonth();
+            var endDate = DateTime.Now.LastDayOfNextMonth();
+            var sourceRepo = _serviceProvider.GetService<IMeetingRepository>();
+            var meetings = sourceRepo.GetMeetings(startDate, endDate);
+
+
+
+Demo 3:
+
+In Main() of Program.cs of CreateCateringData, Add
+
+            container.AddTransient<ICateringStrategy>(s => new Catering.Business.Strategy.Engine());
+
+
+In CreateData() of Catering.Business.Engine, Add
+
             // Determine if catering is required for any day in any meeting
-            var strategy = new Catering.Business.Strategy.Engine();
+            var strategy = _serviceProvider.GetService<ICateringStrategy>();
             var cateringEvents = meetings.SelectCateringEvents(strategy, start);
 
