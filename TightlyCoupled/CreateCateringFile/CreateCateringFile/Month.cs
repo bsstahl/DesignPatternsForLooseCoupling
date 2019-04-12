@@ -8,12 +8,12 @@ namespace CreateCateringFile
 {
     internal class Month : System.IO.StreamReader
     {
-        DateTime _firstDayOfMonth;
+        readonly DateTime _firstDayOfMonth;
 
         internal Month(string inputFile) 
             : base(inputFile)
         {
-            _firstDayOfMonth = GetFirstDayOfTheMonth(inputFile);
+            _firstDayOfMonth = this.GetFirstDayOfTheMonth(inputFile);
         }
 
         internal void WriteCateringOutput(System.IO.StreamWriter outputFile)

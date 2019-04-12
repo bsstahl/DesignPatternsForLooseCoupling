@@ -11,7 +11,7 @@ namespace Catering.Business
 {
     public class Engine
     {
-        IServiceProvider _serviceProvider;
+        readonly IServiceProvider _serviceProvider;
         public Engine(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
