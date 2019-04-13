@@ -10,9 +10,8 @@ namespace Catering.Business.Strategy
 {
     public class Engine : ICateringStrategy
     {
-        Single[] _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
-        Single[] _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
-
+        readonly Single[] _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
+        readonly Single[] _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
 
         public bool ShouldMeetingBeCatered(DateTime startDateTime, Single meetingLengthHours)
         {
@@ -21,17 +20,23 @@ namespace Catering.Business.Strategy
             var dow = startDateTime.Date.DayOfWeek;
             var isWeekend = (dow == DayOfWeek.Saturday || dow == DayOfWeek.Sunday);
 
-            var mtgHours = new List<Single>();
-            Single startHour = startDateTime.Hour + (startDateTime.Minute / 60);
-            Single endHour = endDateTime.Hour + (endDateTime.Minute / 60);
-            for (Single i = startHour; i < endHour; i = i + 0.5f)
-                mtgHours.Add(i);
+            var mtgHours = GetMeetingHours(startDateTime, endDateTime);
 
             var isDuringWeekdayLunch = _weekdayLunchHours.Intersect(mtgHours).Any();
             var isDuringWeekendLunch = _weekendLunchHours.Intersect(mtgHours).Any();
 
             bool isDuringLunch = (isDuringWeekdayLunch || (isWeekend && isDuringWeekendLunch));
             return (isDuringLunch && meetingLengthHours > 1.0);
+        }
+
+        private static List<Single> GetMeetingHours(DateTime startDateTime, DateTime endDateTime)
+        {
+            var mtgHours = new List<Single>();
+            Single startHour = startDateTime.Hour + (startDateTime.Minute / 60);
+            Single endHour = endDateTime.Hour + (endDateTime.Minute / 60);
+            for (Single i = startHour; i < endHour; i += 0.5f)
+                mtgHours.Add(i);
+            return mtgHours;
         }
     }
 }
