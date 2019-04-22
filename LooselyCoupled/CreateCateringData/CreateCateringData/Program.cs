@@ -14,7 +14,9 @@ namespace CreateCateringData
         {
             // TODO: Add dependencies to container
 
-            // TODO: Call the orchestration logic
+            // Call the orchestration logic
+            var engine = new Catering.Business.Engine();
+            engine.CreateData();
         }
     }
 }

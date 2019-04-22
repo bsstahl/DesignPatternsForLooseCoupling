@@ -15,8 +15,13 @@ namespace Catering.Business
 
         public void CreateData()
         {
-            // TODO: Retrieve the data from the repository
-
+            // Calculate start and end dates of next month
+            var start = DateTime.Now.FirstDayOfNextMonth();
+            var end = DateTime.Now.LastDayOfNextMonth();
+            
+            // Retrieve the data from the repository
+            var repo = new Catering.Data.MeetingFile.Repository(@"..\..\..\..\..\data\April2017.csv");
+            var meetings = repo.GetMeetings(start, end);
 
             // TODO: Determine if catering is required for any day in any meeting
 
