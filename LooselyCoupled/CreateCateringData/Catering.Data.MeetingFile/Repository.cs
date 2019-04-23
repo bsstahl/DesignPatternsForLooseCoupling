@@ -15,7 +15,7 @@ namespace Catering.Data.MeetingFile
 
         public IEnumerable<Common.Entities.Meeting> GetMeetings(DateTime start, DateTime end)
         {
-            return new Month(_inputFilePath);
+            return new Month(_inputFilePath).StartingBetween(start, end);
         }
     }
 }

@@ -9,8 +9,10 @@ namespace Catering.Business
 {
     public class Engine
     {
-        public Engine()
+        private readonly string _filePath;
+        public Engine(string filePath)
         {
+            _filePath = filePath;
         }
 
         public void CreateData()
@@ -20,7 +22,7 @@ namespace Catering.Business
             var end = DateTime.Now.LastDayOfNextMonth();
             
             // Retrieve the data from the repository
-            var repo = new Catering.Data.MeetingFile.Repository(@"..\..\..\..\..\data\April2017.csv");
+            var repo = new Catering.Data.MeetingFile.Repository(_filePath);
             var meetings = repo.GetMeetings(start, end);
 
             // TODO: Determine if catering is required for any day in any meeting

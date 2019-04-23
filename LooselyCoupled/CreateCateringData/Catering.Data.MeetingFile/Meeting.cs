@@ -24,5 +24,10 @@ namespace Catering.Data.MeetingFile
             this.LengthHours = Single.Parse(items[3]);
             this.Location = items[4];
         }
+
+        public DateTime StartDateTime
+        {
+            get => this.StartDate.AddHours(this.StartHour);
+        }
     }
 }

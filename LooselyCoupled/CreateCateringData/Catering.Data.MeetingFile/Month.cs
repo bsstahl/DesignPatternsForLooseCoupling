@@ -41,5 +41,11 @@ namespace Catering.Data.MeetingFile
             return DateTime.Parse(firstOfMonthText);
         }
 
+        internal IEnumerable<Meeting> StartingBetween(DateTime start, DateTime end)
+        {
+            return this.Where(m => 
+                m.StartDateTime >= start && 
+                m.StartDateTime < end);
+        }
     }
 }
