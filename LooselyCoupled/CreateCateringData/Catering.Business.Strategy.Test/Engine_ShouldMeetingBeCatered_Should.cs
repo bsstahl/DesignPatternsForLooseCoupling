@@ -1,16 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Catering.Business.Strategy.Test
 {
-    [TestClass]
     public class Engine_ShouldMeetingBeCatered_Should
     {
-        public TestContext TestContext { get; set; }
-
         #region Saturday Tests
 
-        [TestMethod]
+        [Fact]
         public void ReturnFalseIfMeetingStartsAfterLunchOnSaturday()
         {
             bool expected = false;
@@ -20,10 +17,10 @@ namespace Catering.Business.Strategy.Test
             var target = new Strategy.Engine();
             var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnFalseIfMeetingEndsAtStartOfLunchOnSaturday()
         {
             bool expected = false;
@@ -33,10 +30,10 @@ namespace Catering.Business.Strategy.Test
             var target = new Strategy.Engine();
             var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnTrueIfMeetingStartsDuringLunchOnSaturday()
         {
             bool expected = true;
@@ -46,10 +43,10 @@ namespace Catering.Business.Strategy.Test
             var target = new Strategy.Engine();
             var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnTrueIfMeetingStartsAtEndOfLunchOnSaturday()
         {
             bool expected = true;
@@ -59,10 +56,10 @@ namespace Catering.Business.Strategy.Test
             var target = new Strategy.Engine();
             var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void ReturnTrueIfMeetingRunsThroughLunchOnSaturday()
         {
             bool expected = true;
@@ -72,7 +69,7 @@ namespace Catering.Business.Strategy.Test
             var target = new Strategy.Engine();
             var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         #endregion

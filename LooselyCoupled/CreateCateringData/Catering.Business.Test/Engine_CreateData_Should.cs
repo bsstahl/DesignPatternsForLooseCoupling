@@ -1,23 +1,20 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Framework.DependencyInjection;
 using Catering.Common.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
+using Xunit;
 
 namespace Catering.Business.Test
 {
-    [TestClass]
     public class Engine_CreateData_Should
     {
-        public TestContext TestContext { get; set; }
-
-        [TestMethod]
+        [Fact]
         public void RetrieveTheMeetingsFromTheMeetingRepositoryExactlyOnce()
         {
             var container = new ServiceCollection();
 
             var repo = new Mock<IMeetingRepository>();
-            container.AddInstance<IMeetingRepository>(repo.Object);
+            container.AddSingleton<IMeetingRepository>(repo.Object);
 
             var target = new Catering.Business.Engine(container.BuildServiceProvider());
             target.CreateData();
@@ -25,13 +22,13 @@ namespace Catering.Business.Test
             repo.Verify(r => r.GetMeetings(It.IsAny<DateTime>(), It.IsAny<DateTime>()), Times.Exactly(1));
         }
 
-        [TestMethod]
+        [Fact]
         public void PassTheFirstDayOfNextMonthAsTheStartDateToTheMeetingRepository()
         {
             var container = new ServiceCollection();
 
             var repo = new Mock<IMeetingRepository>();
-            container.AddInstance<IMeetingRepository>(repo.Object);
+            container.AddSingleton<IMeetingRepository>(repo.Object);
 
             var target = new Catering.Business.Engine(container.BuildServiceProvider());
             target.CreateData();
@@ -39,13 +36,13 @@ namespace Catering.Business.Test
             repo.Verify(r => r.GetMeetings(DateTime.Now.FirstDayOfNextMonth(), It.IsAny<DateTime>()), Times.Once);
         }
 
-        [TestMethod]
+        [Fact]
         public void PassTheLastDayOfNextMonthAsTheEndDateToTheMeetingRepository()
         {
             var container = new ServiceCollection();
 
             var repo = new Mock<IMeetingRepository>();
-            container.AddInstance<IMeetingRepository>(repo.Object);
+            container.AddSingleton<IMeetingRepository>(repo.Object);
 
             var target = new Catering.Business.Engine(container.BuildServiceProvider());
             target.CreateData();
