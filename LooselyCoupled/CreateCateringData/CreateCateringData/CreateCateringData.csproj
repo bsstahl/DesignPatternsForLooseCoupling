@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,9 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj" />
 	<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
-	<ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj" />
   </ItemGroup>
 
   </Project>

@@ -1,9 +1,6 @@
 ﻿using System;
-using Catering.Common.Extensions;
-using Catering.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
-using Catering.Common.Entities;
 
 namespace Catering.Business
 {
