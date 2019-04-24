@@ -12,10 +12,13 @@ namespace CreateCateringData
     {
         static void Main(string[] args)
         {
-            // TODO: Add dependencies to container
+            // Add dependencies to container
+            var container = new ServiceCollection();
+            container.AddTransient<IMeetingRepository>(s => 
+                new Catering.Data.MeetingFile.Repository(@"..\..\..\..\..\..\data\April2017.csv"));
 
             // Call the orchestration logic
-            var engine = new Catering.Business.Engine(@"..\..\..\..\..\data\April2017.csv");
+            var engine = new Catering.Business.Engine(container.BuildServiceProvider());
             engine.CreateData();
         }
     }

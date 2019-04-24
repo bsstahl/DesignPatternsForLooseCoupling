@@ -9,10 +9,10 @@ namespace Catering.Business
 {
     public class Engine
     {
-        private readonly string _filePath;
-        public Engine(string filePath)
+        private readonly IServiceProvider _serviceProvider;
+        public Engine(IServiceProvider serviceProvider)
         {
-            _filePath = filePath;
+            _serviceProvider = serviceProvider;
         }
 
         public void CreateData()
@@ -20,10 +20,11 @@ namespace Catering.Business
             // Calculate start and end dates of next month
             var start = DateTime.Now.FirstDayOfNextMonth();
             var end = DateTime.Now.LastDayOfNextMonth();
-            
+
             // Retrieve the data from the repository
-            var repo = new Catering.Data.MeetingFile.Repository(_filePath);
+            var repo = _serviceProvider.GetService<IMeetingRepository>();
             var meetings = repo.GetMeetings(start, end);
+
 
             // TODO: Determine if catering is required for any day in any meeting
 
