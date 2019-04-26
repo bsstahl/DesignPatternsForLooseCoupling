@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestHelperExtensions;
+using Catering.Common.Builders;
 
 namespace Catering.Business.Test
 {
@@ -12,24 +13,17 @@ namespace Catering.Business.Test
     {
         public static IEnumerable<Meeting> Create(this IEnumerable<Meeting> ignore)
         {
-            var result = new List<Meeting>();
-            for (int i = 0; i < 25.GetRandom(); i++)
-            {
-                result.Add((new Meeting()).Create());
-            }
-            return result;
+            return ignore.Create(25.GetRandom());
         }
 
-        public static Meeting Create(this Meeting ignore)
+        public static IEnumerable<Meeting> Create(this IEnumerable<Meeting> ignore, Int32 count)
         {
-            return new Meeting()
+            var result = new List<Meeting>();
+            for (int i = 0; i < count; i++)
             {
-                StartDate = DateTime.Now.AddDays(255.GetRandom()),
-                NumberOfDays = 5.GetRandom(1),
-                LengthHours = 6.GetRandom(2),
-                Location = string.Empty.GetRandom(),
-                StartHour = 20.GetRandom(10)
-            };
+                result.Add((new MeetingBuilder()).Random().Build());
+            }
+            return result;
         }
 
         public static DateTime FirstDayOfNextMonth(this DateTime value)
@@ -49,5 +43,15 @@ namespace Catering.Business.Test
             while (result.Day != 1);
             return result.AddDays(-1);
         }
+
+        public static MeetingBuilder Random(this MeetingBuilder builder)
+        {
+            return builder.NumberOfDays(5.GetRandom(1))
+                .StartDate(DateTime.Now.AddDays(255.GetRandom()))
+                .LengthHours(6.GetRandom(2))
+                .Location(string.Empty.GetRandom())
+                .StartHour(20.GetRandom(10));
+        }
+
     }
 }

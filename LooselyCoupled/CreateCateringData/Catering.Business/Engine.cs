@@ -27,7 +27,7 @@ namespace Catering.Business
 
             // Determine if catering is required for any day in any meeting
             var strategy = _serviceProvider.GetService<ICateringStrategy>();
-            var cateringEvents = meetings.SelectCateringEvents(strategy, start);
+            var cateringEvents = meetings.SelectCateringEvents(strategy);
 
             // TODO: Output results to Catering Repository
         }

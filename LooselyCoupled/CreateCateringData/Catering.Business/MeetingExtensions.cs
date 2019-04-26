@@ -7,28 +7,28 @@ namespace Catering.Business
 {
     public static class MeetingExtensions
     {
-        public static CateringEvent AsCateringEvent(this Meeting meeting, int yearNumber, int monthNumber)
+        public static CateringEvent AsCateringEvent(this Meeting meeting)
         {
             return new CateringEvent()
             {
-                CateringDate = new DateTime(yearNumber, monthNumber, meeting.StartDate.Day),
+                CateringDate = meeting.StartDate.Date,
                 City = meeting.Location
             };
         }
 
-        public static IEnumerable<CateringEvent> SelectCateringEvents(this IEnumerable<Meeting> meetings, ICateringStrategy strategy, DateTime start)
+        public static IEnumerable<CateringEvent> SelectCateringEvents(this IEnumerable<Meeting> meetings, ICateringStrategy strategy)
         {
             var results = new List<CateringEvent>();
             foreach (var meeting in meetings)
             {
                 for (int i = 0; i < meeting.NumberOfDays; i++)
                 {
-                    var startDateTime = new DateTime(start.Year, start.Month, meeting.StartDate.Day)
+                    var startDateTime = meeting.StartDate.Date
                         .AddDays(i)
                         .AddHours(meeting.StartHour);
 
                     if (strategy.ShouldMeetingBeCatered(startDateTime, meeting.LengthHours))
-                        results.Add(meeting.AsCateringEvent(start.Year, start.Month));
+                        results.Add(meeting.AsCateringEvent());
                 }
             }
 

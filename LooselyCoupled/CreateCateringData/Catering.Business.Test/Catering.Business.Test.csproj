@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
+    <ProjectReference Include="..\Catering.Common.Builders\Catering.Common.Builders.csproj" />
+    <ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
