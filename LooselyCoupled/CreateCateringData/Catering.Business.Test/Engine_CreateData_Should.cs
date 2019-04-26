@@ -1,17 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using Catering.Common.Interfaces;
+using Catering.Common.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Xunit;
+using System.Linq;
 
 namespace Catering.Business.Test
 {
     public class Engine_CreateData_Should
     {
-        // We can now do interaction testing with the Repository but still
-        // have no good way to test the actual Business Rules since the only
-        // way the results ever leave the Business engine is when they
-        // are written out in the results.
+        [Fact]
+        public void CallTheCateringStrategyOncePerMeetingDay()
+        {
+            var container = new ServiceCollection();
+
+            var strategy = new Mock<ICateringStrategy>();
+            container.AddSingleton<ICateringStrategy>(strategy.Object);
+
+            var repo = new Mock<IMeetingRepository>();
+            var meetings = (null as IEnumerable<Meeting>).Create();
+            repo.Setup(r => r.GetMeetings(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(meetings);
+            container.AddSingleton<IMeetingRepository>(repo.Object);
+
+            var target = new Catering.Business.Engine(container.BuildServiceProvider());
+            target.CreateData();
+
+            int expected = meetings.Sum(m => m.NumberOfDays);
+            strategy.Verify(s => s.ShouldMeetingBeCatered(It.IsAny<DateTime>(), It.IsAny<float>()), Times.Exactly(expected));
+        }
+
 
         [Fact]
         public void RetrieveTheMeetingsFromTheMeetingRepositoryExactlyOnce()

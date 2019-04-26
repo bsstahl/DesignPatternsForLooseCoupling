@@ -23,7 +23,10 @@ namespace Catering.Business
             {
                 for (int i = 0; i < meeting.NumberOfDays; i++)
                 {
-                    var startDateTime = new DateTime(start.Year, start.Month, meeting.StartDate.Day).AddDays(i).AddHours(meeting.StartHour);
+                    var startDateTime = new DateTime(start.Year, start.Month, meeting.StartDate.Day)
+                        .AddDays(i)
+                        .AddHours(meeting.StartHour);
+
                     if (strategy.ShouldMeetingBeCatered(startDateTime, meeting.LengthHours))
                         results.Add(meeting.AsCateringEvent(start.Year, start.Month));
                 }

@@ -25,11 +25,12 @@ namespace Catering.Business
             var repo = _serviceProvider.GetService<IMeetingRepository>();
             var meetings = repo.GetMeetings(start, end);
 
-
-            // TODO: Determine if catering is required for any day in any meeting
-
+            // Determine if catering is required for any day in any meeting
+            var strategy = _serviceProvider.GetService<ICateringStrategy>();
+            var cateringEvents = meetings.SelectCateringEvents(strategy, start);
 
             // TODO: Output results to Catering Repository
         }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catering.Common", "Catering.Common\Catering.Common.csproj", "{3D10F63F-3AA0-4296-BA09-AAB1625C8258}"
 EndProject
@@ -24,7 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Script.txt = Script.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catering.Data.MeetingFile.Test", "Catering.Data.MeetingFile.Test\Catering.Data.MeetingFile.Test.csproj", "{268CD6B3-4766-48E9-9CC6-62786D513F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catering.Data.MeetingFile.Test", "Catering.Data.MeetingFile.Test\Catering.Data.MeetingFile.Test.csproj", "{268CD6B3-4766-48E9-9CC6-62786D513F71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catering.Business.Strategy", "Catering.Business.Strategy\Catering.Business.Strategy.csproj", "{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catering.Business.Strategy.Test", "Catering.Business.Strategy.Test\Catering.Business.Strategy.Test.csproj", "{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,6 +116,30 @@ Global
 		{268CD6B3-4766-48E9-9CC6-62786D513F71}.Release|x64.Build.0 = Release|Any CPU
 		{268CD6B3-4766-48E9-9CC6-62786D513F71}.Release|x86.ActiveCfg = Release|Any CPU
 		{268CD6B3-4766-48E9-9CC6-62786D513F71}.Release|x86.Build.0 = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|x64.Build.0 = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Debug|x86.Build.0 = Debug|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|x64.ActiveCfg = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|x64.Build.0 = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|x86.ActiveCfg = Release|Any CPU
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D}.Release|x86.Build.0 = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|x64.Build.0 = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Debug|x86.Build.0 = Debug|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|x64.ActiveCfg = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|x64.Build.0 = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +148,8 @@ Global
 		{DDF0342E-D412-43B4-A166-32D6BD96D70A} = {A27AF416-C036-44A9-AAD5-EA96554BC677}
 		{BCC9C922-F0C4-423F-B659-4E499D13DFF2} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
 		{268CD6B3-4766-48E9-9CC6-62786D513F71} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
+		{404ACC51-4FE1-4EC4-AB76-4835B1CA871D} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
+		{FFFFB4EA-AFB3-41C5-8FD7-0132E5C7CC9B} = {046F821E-C74C-4E3F-9B45-206DB20AF691}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90BEBF45-0DAE-4326-ACD9-3B6533D6B6F2}
