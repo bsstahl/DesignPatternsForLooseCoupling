@@ -10,8 +10,16 @@ namespace Catering.Business.Strategy
 {
     public class Engine : ICateringStrategy
     {
-        readonly Single[] _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
-        readonly Single[] _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
+        readonly IEnumerable<Single> _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
+        readonly IEnumerable<Single> _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
+
+        public Engine() { }
+
+        public Engine(IEnumerable<Single> weekdayLunchHours, IEnumerable<Single> weekendLunchHours)
+        {
+            _weekdayLunchHours = weekdayLunchHours;
+            _weekendLunchHours = weekendLunchHours;
+        }
 
         public bool ShouldMeetingBeCatered(DateTime startDateTime, Single meetingLengthHours)
         {

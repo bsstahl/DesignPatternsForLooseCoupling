@@ -84,6 +84,48 @@ namespace Catering.Business.Strategy.Test
 
         // TODO: Weekday Tests
 
-        #endregion  
+        #endregion
+
+        #region Exposing Bug Raised by hakanson in GitHub Issue #1
+
+        // Issue is only visible when: 
+        //   * It is a weekend
+        //   * It is not during weekend lunch hours 
+        //   * But it is during weekday lunch hours
+        // https://github.com/bsstahl/DesignPatternsForLooseCoupling/issues/1
+
+        [Fact]
+        public void ReturnFalseIfMeetingStartsAfterLunchOnSaturdayButDuringWeekdayLunchHours()
+        {
+            var weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
+            var weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12.0f };
+
+            bool expected = false;
+            DateTime startDateTime = DateTime.Parse("7/22/2023 12:30"); // Saturday
+            Single meetingLengthHours = 2.0f;
+
+            var target = new Strategy.Engine(weekdayLunchHours, weekendLunchHours);
+            var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ReturnFalseIfMeetingStartsBeforeLunchOnSundayButDuringWeekdayLunchHours()
+        {
+            var weekdayLunchHours = new Single[] { 11f, 11.5f, 12f };
+            var weekendLunchHours = new Single[] { 11.5f, 12.0f, 12.5f, 13f, 13.5f };
+
+            bool expected = false;
+            DateTime startDateTime = DateTime.Parse("7/23/2023 11:00"); // Sunday
+            Single meetingLengthHours = 2.0f;
+
+            var target = new Strategy.Engine(weekdayLunchHours, weekendLunchHours);
+            var actual = target.ShouldMeetingBeCatered(startDateTime, meetingLengthHours);
+
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion
     }
 }
