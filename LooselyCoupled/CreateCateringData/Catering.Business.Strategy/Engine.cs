@@ -10,8 +10,16 @@ namespace Catering.Business.Strategy
 {
     public class Engine : ICateringStrategy
     {
-        readonly Single[] _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
-        readonly Single[] _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
+        readonly IEnumerable<Single> _weekdayLunchHours = new Single[] { 11f, 11.5f, 12f, 12.5f };
+        readonly IEnumerable<Single> _weekendLunchHours = new Single[] { 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f };
+
+        public Engine() { }
+
+        public Engine(IEnumerable<Single> weekdayLunchHours, IEnumerable<Single> weekendLunchHours)
+        {
+            _weekdayLunchHours = weekdayLunchHours;
+            _weekendLunchHours = weekendLunchHours;
+        }
 
         public bool ShouldMeetingBeCatered(DateTime startDateTime, Single meetingLengthHours)
         {
@@ -20,23 +28,18 @@ namespace Catering.Business.Strategy
             var dow = startDateTime.Date.DayOfWeek;
             var isWeekend = (dow == DayOfWeek.Saturday || dow == DayOfWeek.Sunday);
 
-            var mtgHours = GetMeetingHours(startDateTime, endDateTime);
+            var mtgHours = startDateTime.AsThirtyMinuteIntervals(endDateTime);
 
-            var isDuringWeekdayLunch = _weekdayLunchHours.Intersect(mtgHours).Any();
-            var isDuringWeekendLunch = _weekendLunchHours.Intersect(mtgHours).Any();
+            var isDuringWeekdayLunchHours = _weekdayLunchHours.Intersect(mtgHours).Any();
+            var isDuringWeekendLunchHours = _weekendLunchHours.Intersect(mtgHours).Any();
 
-            bool isDuringLunch = (isDuringWeekdayLunch || (isWeekend && isDuringWeekendLunch));
+            var isDuringWeekdayLunch = !isWeekend && isDuringWeekdayLunchHours;
+            var isDuringWeekendLunch = isWeekend && isDuringWeekendLunchHours;
+
+            bool isDuringLunch = isDuringWeekdayLunch || isDuringWeekendLunch;
+
             return (isDuringLunch && meetingLengthHours > 1.0);
         }
 
-        private static List<Single> GetMeetingHours(DateTime startDateTime, DateTime endDateTime)
-        {
-            var mtgHours = new List<Single>();
-            Single startHour = startDateTime.Hour + (startDateTime.Minute / 60);
-            Single endHour = endDateTime.Hour + (endDateTime.Minute / 60);
-            for (Single i = startHour; i < endHour; i += 0.5f)
-                mtgHours.Add(i);
-            return mtgHours;
-        }
     }
 }

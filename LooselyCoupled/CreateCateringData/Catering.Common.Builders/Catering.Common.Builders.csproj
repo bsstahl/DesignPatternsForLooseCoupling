@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MeetingService\MeetingService.csproj" />
     <ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
   </ItemGroup>
 

@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MeetingService\MeetingService.csproj" />
     <ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
   </ItemGroup>
 

@@ -9,11 +9,11 @@ namespace MeetingService
     public class Service
     {
         const double _averageMeetingStartsPerDay = 1.5;
-        string[] _locations = new string[] { "Phoenix AZ", "Tucson AZ", "Dallas TX", "Houston TX", "New Orleans LA", "Miami FL", "New York, NY", "Albany NY" };
+        readonly string[] _locations = new string[] { "Phoenix AZ", "Tucson AZ", "Dallas TX", "Houston TX", "New Orleans LA", "Miami FL", "New York, NY", "Albany NY" };
 
         public IEnumerable<Meeting> GetMeetings(DateTime start, DateTime end)
         {
-            return GenerateData(start, end);
+            return this.GenerateData(start, end);
         }
 
         private IEnumerable<Meeting> GenerateData(DateTime start, DateTime end)
@@ -29,7 +29,7 @@ namespace MeetingService
                 {
                     result.Add(new Meeting()
                     {
-                        StartDay = i + 1,
+                        StartDate = start.AddDays(i + 1),
                         NumberOfDays = rnd.Next(1, 4),
                         StartHour = rnd.Next(9, 15),
                         LengthHours = rnd.Next(1, 5),

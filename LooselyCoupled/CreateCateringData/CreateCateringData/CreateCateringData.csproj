@@ -12,9 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj" />
-	<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
 	<ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj" />
+	<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
+	<ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
+	<ProjectReference Include="..\Catering.Data.MeetingServiceClient\Catering.Data.MeetingServiceClient.csproj" />
   </ItemGroup>
 
   </Project>
