@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj" />
 	<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
 	<ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
   </ItemGroup>
