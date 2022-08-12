@@ -1,41 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CreateCateringFile
+namespace CreateCateringFile;
+
+internal class Month : System.IO.StreamReader
 {
-    internal class Month : System.IO.StreamReader
+    readonly DateTime _firstDayOfMonth;
+
+    internal Month(string inputFile) : base(inputFile) 
+        => _firstDayOfMonth = this.GetFirstDayOfTheMonth(inputFile);
+
+    internal void WriteCateringOutput(System.IO.StreamWriter outputFile)
     {
-        readonly DateTime _firstDayOfMonth;
-
-        internal Month(string inputFile) 
-            : base(inputFile)
+        while (!this.EndOfStream)
         {
-            _firstDayOfMonth = this.GetFirstDayOfTheMonth(inputFile);
+            var meeting = new Meeting(this.ReadLine() ?? String.Empty, _firstDayOfMonth);
+            meeting.WriteCateringOutput(outputFile);
         }
+    }
 
-        internal void WriteCateringOutput(System.IO.StreamWriter outputFile)
-        {
-            while (!this.EndOfStream)
-            {
-                var meeting = new Meeting(this.ReadLine(), _firstDayOfMonth);
-                meeting.WriteCateringOutput(outputFile);
-            }
-        }
-
-        private DateTime GetFirstDayOfTheMonth(string inputFile)
-        {
-            string fileName = System.IO.Path.GetFileNameWithoutExtension(inputFile);
-            int fnLength = fileName.Length;
-
-            string monthName = fileName.Substring(0, 3);
-            string yearText = fileName.Substring(fnLength - 4, 4);
-            string firstOfMonthText = $"01-{monthName}-{yearText}";
-
-            return DateTime.Parse(firstOfMonthText);
-        }
-
+    private DateTime GetFirstDayOfTheMonth(string inputFile)
+    {
+        string fileName = System.IO.Path.GetFileNameWithoutExtension(inputFile);
+        string monthName = fileName.Substring(0, 3);
+        string yearText = fileName.Substring(fileName.Length - 4, 4);
+        return DateTime.Parse($"01-{monthName}-{yearText}");
     }
 }
