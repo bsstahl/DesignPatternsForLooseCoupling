@@ -2,7 +2,7 @@
 
 internal class Meeting
 {
-    List<MeetingDay> _meetingDays = new List<MeetingDay>();
+    readonly List<MeetingDay> _meetingDays = new();
 
     internal Meeting(string sourceFileRow, DateTime firstDayOfMonth) 
         => this.Parse(sourceFileRow, firstDayOfMonth);
@@ -19,7 +19,7 @@ internal class Meeting
     {
         foreach (var meetingDate in _meetingDays)
             if (meetingDate.IsCatered)
-                outputWriter.WriteLine($"{meetingDate.StartDateTime.ToString("d")},{this.Location}");
+                outputWriter.WriteLine($"{meetingDate.StartDateTime:d},{this.Location}");
     }
 
     private void Parse(string sourceFileRow, DateTime firstDayOfMonth)
