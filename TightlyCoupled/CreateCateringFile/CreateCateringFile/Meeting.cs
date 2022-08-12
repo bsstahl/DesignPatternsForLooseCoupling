@@ -4,10 +4,8 @@ internal class Meeting
 {
     List<MeetingDay> _meetingDays = new List<MeetingDay>();
 
-    internal Meeting(string sourceFileRow, DateTime firstDayOfMonth)
-    {
-        this.Parse(sourceFileRow, firstDayOfMonth);
-    }
+    internal Meeting(string sourceFileRow, DateTime firstDayOfMonth) 
+        => this.Parse(sourceFileRow, firstDayOfMonth);
 
     internal int StartDay { get; set; }
     internal int DayCount { get; set; }
@@ -15,10 +13,7 @@ internal class Meeting
     internal Single Length { get; set; }
     internal string Location { get; set; } = String.Empty;
 
-    internal IEnumerable<MeetingDay> MeetingDays
-    {
-        get { return _meetingDays; }
-    }
+    internal IEnumerable<MeetingDay> MeetingDays => _meetingDays;
 
     internal void WriteCateringOutput(System.IO.StreamWriter outputWriter)
     {
