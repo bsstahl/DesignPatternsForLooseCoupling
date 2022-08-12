@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CreateCateringFile;
+﻿namespace CreateCateringFile;
 
 internal class Meeting
 {
