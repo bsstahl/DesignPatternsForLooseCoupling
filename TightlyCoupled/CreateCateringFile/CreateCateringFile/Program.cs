@@ -10,11 +10,9 @@ class Program
         string inputFile = argumentPairs["-s"] ?? "input.csv";
         string outputFile = argumentPairs["-t"] ?? "output.csv";
 
-        using (var outputWriter = new System.IO.StreamWriter(outputFile))
-        {
-            var month = new Month(inputFile);
-            month.WriteCateringOutput(outputWriter);
-            outputWriter.Flush();
-        }
+        using var outputWriter = new StreamWriter(outputFile);
+        var month = new Month(inputFile);
+        month.WriteCateringOutput(outputWriter);
+        outputWriter.Flush();
     }
 }
