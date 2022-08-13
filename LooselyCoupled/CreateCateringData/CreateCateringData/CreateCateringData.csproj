@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <ApplicationIcon />
-    <OutputType>Exe</OutputType>
-    <StartupObject />
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<AnalysisLevel>6.0-all</AnalysisLevel>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-	<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Catering.Business.Strategy\Catering.Business.Strategy.csproj" />
+		<ProjectReference Include="..\Catering.Business\Catering.Business.csproj" />
+		<ProjectReference Include="..\Catering.Data.CateringEventLog\Catering.Data.CateringEventLog.csproj" />
+		<ProjectReference Include="..\Catering.Data.MeetingFile\Catering.Data.MeetingFile.csproj" />
+	</ItemGroup>
 
-  </Project>
+</Project>
 

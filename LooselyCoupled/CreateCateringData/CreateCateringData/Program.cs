@@ -1,19 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Catering.Business;
+using Catering.Data.MeetingFile;
+using Catering.Common.Interfaces;
+using Catering.Data.CateringEventLog;
+using Catering.Business.Strategy;
 
-namespace CreateCateringData
+namespace CreateCateringData;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            // TODO: Add dependencies to container
+        var argumentPairs = new ArgumentCollection(args);
+        string inputFile = argumentPairs["-s"] ?? "input.csv";
+        // string outputFile = argumentPairs["-t"] ?? "output.csv";
 
-            // TODO: Call the orchestration logic
-        }
+        // Add dependencies to container
+        var serviceProvider = new ServiceCollection()
+            .UseCateringBusinessEngine()
+            .UseMeetingFileMeetingRepository(inputFile)
+            .UseCateringEventLogRepository()
+            .UseLunchtimeCateringStrategy()
+            .BuildServiceProvider();
+
+        // Retrieve the Orchestration Engine
+        var engine = serviceProvider
+            .GetRequiredService<IOrchestrationEngine>(); 
+
+        // Call the orchestration logic
+        engine.CreateData();
     }
 }

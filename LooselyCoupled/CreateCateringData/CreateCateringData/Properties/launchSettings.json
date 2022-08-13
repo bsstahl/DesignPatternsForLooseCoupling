@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CreateCateringData": {
+      "commandName": "Project",
+      "commandLineArgs": "-s c:\\Users\\Admin\\Source\\Repos\\DesignPatternsForLooseCoupling\\data\\April2017.csv"
+    }
+  }
+}

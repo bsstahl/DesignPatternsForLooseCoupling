@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
@@ -12,7 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\LooselyCoupled\CreateCateringData\Catering.Common\Catering.Common.csproj" />
+	  <ProjectReference Include="..\Catering.Common\Catering.Common.csproj" />
 	</ItemGroup>
 
 </Project>

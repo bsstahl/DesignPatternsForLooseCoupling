@@ -1,24 +1,35 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+﻿using Catering.Common.Extensions;
+using Catering.Common.Interfaces;
+using System;
 
-namespace Catering.Business
+namespace Catering.Business;
+
+public class Engine: IOrchestrationEngine
 {
-    public class Engine
+    readonly IMeetingReadRepository _meetingRepo;
+    readonly ICateringStrategy _strategy;
+    readonly ICateringEventWriteRepository _cateringEventRepo;
+
+    public Engine(IMeetingReadRepository meetingRepo, ICateringStrategy strategy, ICateringEventWriteRepository cateringEventRepo)
     {
-        public Engine()
-        {
-        }
+        _meetingRepo = meetingRepo;
+        _strategy = strategy;
+        _cateringEventRepo = cateringEventRepo;
+    }
 
-        public void CreateData()
-        {
-            // TODO: Retrieve the data from the repository
+    public void CreateData()
+    {
+        // Calculate start and end dates of next month
+        var start = DateTime.Now.FirstDayOfNextMonth();
+        var end = DateTime.Now.LastDayOfNextMonth();
 
+        // Retrieve the data from the repository
+        var meetings = _meetingRepo.GetMeetings(start, end);
 
-            // TODO: Determine if catering is required for any day in any meeting
+        // Determine if catering is required for any day in any meeting
+        var cateringEvents = meetings.SelectCateringEvents(_strategy);
 
-
-            // TODO: Output results to Catering Repository
-        }
+        // Output results to Catering Repository
+        _cateringEventRepo.WriteCateringEvents(cateringEvents);
     }
 }
