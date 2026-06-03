@@ -18,11 +18,11 @@ namespace Catering.Business
         public void CreateData(DateTime start, DateTime end)
         {
             // Retrieve the data from the repository
-            var repo = _serviceProvider.GetService<IMeetingRepository>();
+            var repo = _serviceProvider.GetRequiredService<IMeetingRepository>();
             var meetings = repo.GetMeetings(start, end);
 
             // Determine if catering is required for any day in any meeting
-            var strategy = _serviceProvider.GetService<ICateringStrategy>();
+            var strategy = _serviceProvider.GetRequiredService<ICateringStrategy>();
             var cateringEvents = meetings.SelectCateringEvents(strategy);
 
             // TODO: Output results to Catering Repository

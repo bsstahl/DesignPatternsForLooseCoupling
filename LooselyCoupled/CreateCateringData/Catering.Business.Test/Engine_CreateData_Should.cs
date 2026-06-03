@@ -88,6 +88,8 @@ namespace Catering.Business.Test
         {
             var container = new ServiceCollection();
 
+            container.AddSingleton<ICateringStrategy>(Mock.Of<ICateringStrategy>());
+
             var repo = new Mock<IMeetingRepository>();
             container.AddSingleton<IMeetingRepository>(repo.Object);
 
@@ -103,6 +105,8 @@ namespace Catering.Business.Test
             var expected = DateTime.Now.GetRandom();
             var container = new ServiceCollection();
 
+            container.AddSingleton<ICateringStrategy>(Mock.Of<ICateringStrategy>());
+
             var repo = new Mock<IMeetingRepository>();
             container.AddSingleton<IMeetingRepository>(repo.Object);
 
@@ -117,6 +121,8 @@ namespace Catering.Business.Test
         {
             var expected = DateTime.Now.GetRandom();
             var container = new ServiceCollection();
+
+            container.AddSingleton<ICateringStrategy>(Mock.Of<ICateringStrategy>());
 
             var repo = new Mock<IMeetingRepository>();
             container.AddSingleton<IMeetingRepository>(repo.Object);
